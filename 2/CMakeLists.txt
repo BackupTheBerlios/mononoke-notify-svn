@@ -1,0 +1,5 @@
+project(MONOKE-NOTIFY-2 C CXX)
+cmake_minimum_required(VERSION 2.4.0)
+find_package(Qt4 REQUIRED)
+add_subdirectory(src)
+set(CMAKE_COLOR_MAKEFILE ON)

@@ -1,0 +1,27 @@
+ /*
+  *
+  * TODO list :]
+  *
+  */
+
+ => Afficher un "mot du jour" qui serait un point de la fac.
+ => Faire une fenetre qui afficherait les diverses stats
+ => Pouvoir choisir l'action lors du clique sur un torrent [En cours]
+  -> Ouvrir la page web qui concerne le torrent
+  -> Ouvrir le torrent direct
+  -> Telecharger le torrent
+   >> dossier par defaut
+   >> enregistrer sous
+ => Afficher des accents [FAIT]
+ => Ameliorer le tooltip de la notify aera
+ => Savoir ce que l'on est en train de telecharger
+ => Savoir ou l'on est en source
+ => Savoir si notre port est ouvert
+ => Alerter sur la sortie de nouveaux torrents
+ => Mettre les nouveaux torrents en surbrillance
+ => Proposer plus de preferences
+ => Meilleur gestion de la memoire
+ => Faire une petite page web [EN COURS]
+ => Faire un flux rss pour les sorties ?
+ => Trouver un moyen intelligent de gerer les fichiers de config [~/.mononoke-notify]
+ => Barre de progression sur les downloads & parsing [ANNULE]

@@ -1,0 +1,11 @@
+CCFLAGS = $(CFLAGS) --debug -Wall -pipe
+	`pkg-config --cflags glib-2.0 gthread-2.0 gtk+-2.0 libxml-2.0 libcurl` ;
+
+LINKFLAGS = $(LINKFLAGS) `pkg-config --libs glib-2.0 gthread-2.0 gtk+-2.0 libxml-2.0 libcurl` ;
+
+SOURCES = src/callbacks.c src/config.c src/dir.c src/download.c
+		src/eggtrayicon.c src/globals.c src/interface.c src/main.c
+		src/notify_area.c src/prefs_dlg.c src/support.c src/tray_menu.c
+		src/tray_menu_torrent_item.c src/update.c src/xml_user_info.c ;
+
+Main mononoke-notify : $(SOURCES) ;
