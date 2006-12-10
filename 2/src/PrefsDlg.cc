@@ -7,6 +7,8 @@
 #include <QLabel>
 #include <QListWidget>
 #include <QDir>
+#include <QLineEdit>
+#include <QSpinBox>
 #include <QtDebug>
 
 #include "App.hh"

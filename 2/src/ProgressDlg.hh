@@ -13,12 +13,13 @@
 # define _PROGRESSDLG_HH_
 
 # include <QDialog>
-# include <QScrollArea>
-# include <QGridLayout>
 
-# include "HttpDownloader.hh"
+class QGridLayout;
 
 namespace MononokeNotify {
+
+  class HttpDownloader;
+
   class ProgressDlg : public QDialog {
 
   Q_OBJECT

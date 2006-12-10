@@ -15,6 +15,8 @@
 #include "Config.hh"
 #include "TrayMenu.hh"
 #include "Updater.hh"
+#include "PrefsDlg.hh"
+#include "ProgressDlg.hh"
 
 using namespace MononokeNotify;
 

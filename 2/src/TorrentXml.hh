@@ -16,34 +16,34 @@
 # include <QDomNode>
 
 namespace MononokeNotify {
-   class TorrentXml : public QObject {
+  class TorrentXml : public QObject {
 
-    public:
-      void	parse(QDomNode &	node);
+  public:
+    void	parse(QDomNode &	node);
 
-      quint32	id;
-      quint32	leechers;
-      quint32	seeders;
-      QString	name;
-      quint32	team;
-      QString	filename;
-      float	seedratio;
-      quint32	free_download;
-      quint32	category;
-      quint32	times_completed;
-      quint64	size;
-      QString	added;
-      quint32	numfiles;
-      float	rating;
-      QString	cat_name;
-      bool	is_hentai;
-      quint32	main_genre;
-      QString	team_name;
+    quint32	id;
+    quint32	leechers;
+    quint32	seeders;
+    QString	name;
+    quint32	team;
+    QString	filename;
+    float	seedratio;
+    quint32	free_download;
+    quint32	category;
+    quint32	times_completed;
+    quint64	size;
+    QString	added;
+    quint32	numfiles;
+    float	rating;
+    QString	cat_name;
+    bool	is_hentai;
+    quint32	main_genre;
+    QString	team_name;
 
-    private:
-      void	handleNode(QDomNode	node);
+  private:
+    void	handleNode(QDomNode	node);
 
-   };
+  };
 }
 
 #endif /* !_MNTORRENTXML_HH_ */

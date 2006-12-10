@@ -15,7 +15,8 @@
 # include <QDomElement>
 # include <QUrl>
 # include <QWidgetAction>
-# include <QFrame>
+
+class QFrame;
 
 # include "TorrentXml.hh"
 
@@ -25,8 +26,8 @@ namespace MononokeNotify {
   Q_OBJECT
 
   public:
-    TrayMenuAction(QDomElement&		elem,
-		   TorrentXml&		t);
+    TrayMenuAction(QDomElement &	elem,
+		   TorrentXml &		t);
 
   protected:
     QWidget*	createWidget(QWidget*	parent);

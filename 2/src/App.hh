@@ -15,13 +15,16 @@
 # include <QSystemTrayIcon>
 
 # include "Config.hh"
-# include "PrefsDlg.hh"
-# include "ProgressDlg.hh"
 # include "MononokeXml.hh"
-# include "TrayMenu.hh"
 # include "Updater.hh"
 
+/** @brief contains all mononoke-notify classes */
 namespace MononokeNotify {
+
+  class TrayMenu;
+  class PrefsDlg;
+  class ProgressDlg;
+
   /** @brief The application */
   class App : public QApplication {
 

@@ -8,6 +8,7 @@
 #include "TrayMenuAction.hh"
 #include "MononokeXml.hh"
 #include "Updater.hh"
+#include "PrefsDlg.hh"
 
 using namespace MononokeNotify;
 

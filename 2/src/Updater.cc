@@ -8,6 +8,8 @@
 #include "Config.hh"
 #include "Updater.hh"
 #include "HttpDownloader.hh"
+#include "ProgressDlg.hh"
+#include "TrayMenu.hh"
 
 using namespace MononokeNotify;
 

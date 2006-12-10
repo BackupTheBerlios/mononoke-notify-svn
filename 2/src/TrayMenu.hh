@@ -30,11 +30,11 @@ namespace MononokeNotify {
 
   private:
     void	appendSepparator(void);
-    void	parse(QString&			filename);
-    void	handleTrayMenu(QDomElement&	elem);
-    void	handleItem(QDomElement&		elem);
+    void	parse(QString  &		filename);
+    void	handleTrayMenu(QDomElement &	elem);
+    void	handleItem(QDomElement &	elem);
     QMenu*	handleTorrentList(QDomElement	elem,
-				  TorrentList&	tl);
+				  TorrentList &	tl);
 
   private slots:
     void	showPrefs(void);

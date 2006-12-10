@@ -13,9 +13,10 @@
 # define _MNPREFSDLG_HH_
 
 # include <QDialog>
-# include <QLineEdit>
-# include <QSpinBox>
-# include <QListWidget>
+
+class QLineEdit;
+class QSpinBox;
+class QListWidget;
 
 namespace MononokeNotify {
   class PrefsDlg : public QDialog {

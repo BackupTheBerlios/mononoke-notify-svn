@@ -13,8 +13,10 @@
 # define _MNHTTPDOWNLOADER_HH_
 
 # include <QObject>
-# include <QFile>
-# include <QHttp>
+# include <QString>
+
+class QHttp;
+class QFile;
 
 namespace MononokeNotify {
   class HttpDownloader : public QObject {
@@ -33,10 +35,11 @@ namespace MononokeNotify {
     QFile	*file;
 
   signals:
+    /** @brief this signal is emited when the download is finished */
     void	finished(void);
 
   private slots:
-    void	done(bool	error);
+    void	done(void);
 
   };
 }
