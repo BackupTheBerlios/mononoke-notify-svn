@@ -1,3 +1,13 @@
+/*!
+** @file   ProgressDlg.cc
+** @author Alexandre Bique <bique.alexandre@gmail.com>
+** @date   Sun Dec 10 21:41:39 2006
+**
+** @brief  Implementation of MononokeNotify::ProgressDlg
+**
+**
+*/
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
