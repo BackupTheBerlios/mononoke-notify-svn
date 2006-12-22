@@ -37,9 +37,11 @@ namespace MononokeNotify {
     void	tryUpdateMenu(void);
 
   private:
-    void	downloadUserInfoXml(void);
     void	checkThemeFiles(QDomElement&	elem,
 				QString&	base);
+    void	downloadDefaultTheme(void);
+    void	downloadUserInfoXml(void);
+    void	unexistantTheme(void);
   };
 }
 

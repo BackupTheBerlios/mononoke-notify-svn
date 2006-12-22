@@ -49,5 +49,6 @@ namespace MononokeNotify {
 # define mn_progress ((App *)qApp)->progressDlg
 # define mn_updater ((App *)qApp)->updater
 # define mn_menu ((App *)qApp)->trayMenu
+# define mn_tray_icon ((App *)qApp)->trayIcon
 
 #endif /* !_MNAPP_H_ */

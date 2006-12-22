@@ -25,7 +25,6 @@ App::App(int argc, char **argv)
 {
   config.init();
   config.load();
-  trayIcon.show();
   trayMenu = new TrayMenu();
   trayIcon.setContextMenu(trayMenu);
   progressDlg = new ProgressDlg();

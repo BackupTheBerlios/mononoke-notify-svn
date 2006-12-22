@@ -48,8 +48,19 @@ TrayMenu::parse(QString & filename)
 
   QDomElement elem = doc.documentElement().firstChildElement("TrayMenu");
   handleTrayMenu(elem);
+  elem = doc.documentElement().firstChildElement("TrayIcon");
+  handleTrayIcon(elem);
 }
 
+
+void
+TrayMenu::handleTrayIcon(QDomElement & elem)
+{
+  QString filename = QDir::homePath() + "/.config/mononoke-notify-2/themes/"
+    + mn_config.theme + "/" + elem.attribute("src");
+  mn_tray_icon.setIcon(QIcon(filename));
+  mn_tray_icon.setVisible(42);
+}
 
 void
 TrayMenu::handleTrayMenu(QDomElement & elem)
