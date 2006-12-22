@@ -1,0 +1,143 @@
+<Theme version="1.0">
+
+  <Authors>
+    <Author name="BabaLi" mail="bique.alexandre@gmail.com"/>
+  </Authors>
+
+  <Files base="http://mononoke-bt.org/projets/mononoke-notify/2/themes/default/">
+    <File name="bomb.png"/>
+    <File name="cadeau0-large.png"/>
+    <File name="cadeau1-large.png"/>
+    <File name="cadeau2-large.png"/>
+    <File name="cadeau3-large.png"/>
+    <File name="contact.png"/>
+    <File name="crazy.png"/>
+    <File name="donate.png"/>
+    <File name="download.png"/>
+    <File name="grin.png"/>
+    <File name="logout.png"/>
+    <File name="mononoke.png"/>
+    <File name="my.png"/>
+    <File name="refresh.png"/>
+    <File name="search.png"/>
+    <File name="smile1.png"/>
+    <File name="style.css"/>
+    <File name="upload.png"/>
+    <File name="w00t.png"/>
+  </Files>
+
+  <TrayIcon src="mononoke.png"/>
+
+  <Style src="style.css"/>
+
+  <TrayMenu>
+    <Item action="Mononoke">
+      <Icon src="mononoke.png"/>
+      <Text val="Mononoke ["/>
+      <UserName/>
+      <Text val="]"/>
+    </Item>
+
+    <Item action="Update">
+      <Icon src="refresh.png"/>
+      <Text val="Mettre a jour."/>
+    </Item>
+
+    <Separator/>
+
+    <Item>
+      <Icon src="upload.png"/>
+      <Text val="Envoye : "/>
+      <TotalUpload/>
+    </Item>
+
+    <Item>
+      <Icon src="download.png"/>
+      <Text val="Telecharge : "/>
+      <CountedDownload/>
+      <Text val=" + "/>
+      <FreeDownload/>
+      <Text val=" = "/>
+      <TotalDownload/>
+    </Item>
+
+    <Item>
+      <RatioIcon src1="crazy.png" src2="smile1.png" src3="grin.png" src4="w00t.png"/>
+      <Text val="Ratio : "/>
+      <Ratio/>
+      <Text val=" Reel : "/>
+      <TrueRatio/>
+    </Item>
+
+    <Item action="NewMessage">
+      <Icon src="contact.png"/>
+      <Text val="Nouveau Message : "/>
+      <NbrNewMsg/>
+    </Item>
+
+    <Separator/>
+
+    <Item>
+      <Icon src="donate.png"/>
+      <Text val="Besoin de sources"/>
+      <NeedSeeds>
+        <TeamIcon/>
+        <AnimeIcon/>
+        <PackageIcon src0="cadeau0-large.png" src1="cadeau1-large.png" src2="cadeau2-large.png" src3="cadeau3-large.png"/>
+        <Text val=" ("/>
+        <NbrLeech/>
+        <Text val="/"/>
+        <NbrSeed/>
+        <Text val=") "/>
+        <Name/>
+      </NeedSeeds>
+    </Item>
+
+    <Item>
+      <Icon src="bomb.png"/>
+      <Text val="Dernieres sorties"/>
+      <LastReleases>
+        <TeamIcon/>
+        <AnimeIcon/>
+        <PackageIcon src0="cadeau0-large.png" src1="cadeau1-large.png" src2="cadeau2-large.png" src3="cadeau3-large.png"/>
+        <Text val=" ("/>
+        <NbrLeech/>
+        <Text val="/"/>
+        <NbrSeed/>
+        <Text val=") "/>
+        <Name/>
+      </LastReleases>
+    </Item>
+
+    <Item>
+      <Icon src="search.png"/>
+      <Text val="Derniers torrents"/>
+      <LastTorrents>
+        <TeamIcon/>
+        <AnimeIcon/>
+        <PackageIcon src0="cadeau0-large.png" src1="cadeau1-large.png" src2="cadeau2-large.png" src3="cadeau3-large.png"/>
+        <Text val=" ("/>
+        <NbrLeech/>
+        <Text val="/"/>
+        <NbrSeed/>
+        <Text val=") "/>
+        <Name/>
+      </LastTorrents>
+    </Item>
+
+    <Separator/>
+
+    <Item action="ShowPrefs">
+      <Icon src="my.png"/>
+      <Text val="Preferences"/>
+    </Item>
+
+    <Separator/>
+
+    <Item action="Quit">
+      <Icon src="logout.png"/>
+      <Text val="Quitter"/>
+    </Item>
+  </TrayMenu>
+
+</Theme>
