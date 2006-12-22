@@ -1,0 +1,18 @@
+Salut a toi mononokeeins :o)
+
+Pour compiler le programme tu as deux voies :
+ - cmake
+ - qmake
+
+qmake c'est plus facile :
+ - tu vas dans le dossier ou se trouve mononoke-notify-2.pro
+ - tapes les commandes suivantes :
+qmake
+make
+cd src
+ - et voila ton executable est tout chaud :)
+
+cmake c'est plus sexy c'est tout :o)
+ - tu vas dans le dossier ou se trouve mononoke-notify-2.pro
+ - tapes ces commandes :
+mkdir build && cd build && cmake .. && make
