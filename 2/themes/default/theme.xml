@@ -4,7 +4,7 @@
     <Author name="BabaLi" mail="bique.alexandre@gmail.com"/>
   </Authors>
 
-  <Files base="http://mononoke-bt.org/projets/mononoke-notify/2/themes/default/">
+  <Files base="http://dev.mononoke-bt.org/projects/mononoke-notify/themes/default/">
     <File name="bomb.png"/>
     <File name="cadeau0-large.png"/>
     <File name="cadeau1-large.png"/>
