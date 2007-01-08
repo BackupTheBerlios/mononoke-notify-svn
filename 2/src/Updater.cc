@@ -142,7 +142,7 @@ void
 Updater::downloadDefaultTheme(void)
 {
   QString url = "http://dev.mononoke-bt.org/projets/mononoke-notify/"
-    "2/themes/default/theme.xml";
+    "themes/default/theme.xml";
   QString filename = QDir::homePath() +
     "/.config/mononoke-notify-2/themes/default/theme.xml";
   QDir dir(QDir::homePath() + "/.config/mononoke-notify-2/themes/default/");
