@@ -179,6 +179,7 @@ PrefsDlg::load(void)
   leUserName->setText(mn_config.userName);
   sIconSize->setValue(mn_config.iconSize);
   sNbrTorrents->setValue(mn_config.nbrTorrent);
-  lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
-					      Qt::MatchExactly)[0], 1);
+  if (lwTheme->count() > 0)
+    lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
+						Qt::MatchExactly)[0], 1);
 }
