@@ -53,7 +53,8 @@ HttpDownloader::HttpDownloader(QString &	url,
 			       QObject *	parent)
   : QObject(parent)
 {
-  http = new QHttp("mononoke-bt.org", 80, this);
+  QUrl host(url);
+  http = new QHttp(host.host(), 80, this);
   file = new QFile(filename, this);
   name = QFileInfo(filename).fileName();
 
