@@ -80,6 +80,7 @@ ProgressDlg::ProgressDlg()
   setLayout(v);
 
   setMinimumSize(400, 200);
+  resize(400, 300);
 }
 
 void

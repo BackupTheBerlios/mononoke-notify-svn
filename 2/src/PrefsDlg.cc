@@ -35,6 +35,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QPushButton>
+#include <QTextEdit>
 #include <QFrame>
 #include <QTabWidget>
 #include <QLabel>
@@ -49,6 +50,7 @@
 
 using namespace MononokeNotify;
 
+
 PrefsDlg::PrefsDlg()
   : QDialog()
 {
@@ -58,8 +60,10 @@ PrefsDlg::PrefsDlg()
 
   tab->addTab(makeUserWidget(), "Utilisateur");
   tab->addTab(makeThemeWidget(), "Themes");
+#if 0
   tab->addTab(makeDownloadThemeWidget(), "Dl des themes");
   tab->addTab(makeAboutWidget(), "A propos");
+#endif
   v1->addWidget(tab);
 
   QFrame *f = new QFrame();
@@ -81,6 +85,7 @@ PrefsDlg::PrefsDlg()
   v1->addLayout(h1);
 
   setLayout(v1);
+  resize(400, 400);
 
   load();
 }
@@ -139,7 +144,7 @@ PrefsDlg::makeDownloadThemeWidget(void)
 QWidget *
 PrefsDlg::makeAboutWidget(void)
 {
-  return new QLabel("");
+  return (0);
 }
 
 void
