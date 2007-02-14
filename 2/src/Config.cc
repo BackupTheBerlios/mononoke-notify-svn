@@ -33,6 +33,7 @@
 #include <QtDebug>
 #include <QDir>
 #include <QDomDocument>
+#include <QApplication>
 
 #include "Config.hh"
 
@@ -103,6 +104,7 @@ Config::load(void)
   userName = elem.firstChildElement("UserName").attribute("val");
   theme = elem.firstChildElement("Theme").attribute("val");
   qtStyle = elem.firstChildElement("QtStyle").attribute("val");
+  QApplication::setStyle(qtStyle);
   iconSize = elem.firstChildElement("IconSize").attribute("val").toInt();
   nbrTorrent = elem.firstChildElement("NbrTorrent").attribute("val").toInt();
   progressDlgClose = elem.firstChildElement("ProgressDlgClose")
@@ -118,6 +120,7 @@ Config::loadDefault(void)
   nbrTorrent = 6;
   iconSize = 32;
   progressDlgClose = 0;
+  qtStyle = "Plastique";
 }
 
 /** @brief Saves configuration to ~/.config/mononoke-notify-2/config.xml */
@@ -131,7 +134,7 @@ Config::save(void)
   data += "<Config>\n";
   data += "  <UserName val=\"" + userName + "\"/>\n"
     + "  <Theme val=\"" + theme + "\"/>\n"
-    + "  <QtStyle val=\"" + qtStyle + ">"
+    + "  <QtStyle val=\"" + qtStyle + ">\n"
     + "  <IconSize val=\"" + QString::number(iconSize) + "\"/>\n"
     + "  <NbrTorrent val=\"" + QString::number(nbrTorrent) + "\"/>\n"
     + "  <ProgressDlgClose val=\"" + QString::number(progressDlgClose) + "\"/>\n"
