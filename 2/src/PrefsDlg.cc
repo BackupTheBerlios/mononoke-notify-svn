@@ -1,4 +1,3 @@
-
 /*
 **  Copyright 2006, Alexandre Bique <bique.alexandre@gmail.com>
 **
@@ -44,6 +43,9 @@
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QtDebug>
+#include <QComboBox>
+#include <QStyleFactory>
+
 
 #include "App.hh"
 #include "PrefsDlg.hh"
@@ -95,24 +97,29 @@ PrefsDlg::makeUserWidget(void)
 {
   QWidget *w = new QWidget();
   QGridLayout *grid = new QGridLayout();
-  QLabel *l = new QLabel("Login Mononoke-bt : ");
+  QLabel *label = new QLabel("Login Mononoke-bt : ");
 
   leUserName = new QLineEdit("");
-  grid->addWidget(l, 0, 0);
+  grid->addWidget(label, 0, 0);
   grid->addWidget(leUserName, 0, 1);
-  l = new QLabel("Taille des icones : ");
+  label = new QLabel("Taille des icones : ");
   sIconSize = new QSpinBox();
   sIconSize->setMaximum(42);
   sIconSize->setMinimum(10);
-  grid->addWidget(l, 1, 0);
+  grid->addWidget(label, 1, 0);
   grid->addWidget(sIconSize, 1, 1);
-  l = new QLabel("Torrents a afficher : ");
+  label = new QLabel("Torrents a afficher : ");
   sNbrTorrents = new QSpinBox();
   sNbrTorrents->setMaximum(10);
   sNbrTorrents->setMinimum(3);
-  grid->addWidget(l, 2, 0);
+  grid->addWidget(label, 2, 0);
   grid->addWidget(sNbrTorrents, 2, 1);
-  grid->setRowStretch(3, 100);
+  label = new QLabel("Style : ");
+  cbQtStyle = new QComboBox();
+  cbQtStyle->insertItems(0, QStyleFactory::keys());
+  grid->addWidget(label, 3, 0);
+  grid->addWidget(cbQtStyle, 3, 1);
+  grid->setRowStretch(4, 100);
   w->setLayout(grid);
   return w;
 }
@@ -150,13 +157,14 @@ PrefsDlg::makeAboutWidget(void)
 void
 PrefsDlg::ok(void)
 {
-  save();
+  apply();
   hide();
 }
 
 void
 PrefsDlg::apply(void)
 {
+  QApplication::setStyle(QStyleFactory::create(cbQtStyle->currentText()));
   save();
 }
 
@@ -175,6 +183,7 @@ PrefsDlg::save(void)
   mn_config.nbrTorrent = sNbrTorrents->value();
   if (lwTheme->currentItem())
     mn_config.theme = lwTheme->currentItem()->text();
+  mn_config.qtStyle = cbQtStyle->currentText();
   mn_config.save();
 }
 
@@ -187,4 +196,5 @@ PrefsDlg::load(void)
   if (lwTheme->count() > 0)
     lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
 						Qt::MatchExactly)[0], 1);
+  cbQtStyle->setCurrentIndex(cbQtStyle->findText(mn_config.qtStyle));
 }

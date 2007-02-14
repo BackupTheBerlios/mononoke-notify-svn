@@ -1,4 +1,3 @@
-
 /*
 **  Copyright 2006, Alexandre Bique <bique.alexandre@gmail.com>
 **
@@ -39,6 +38,7 @@
 class QLineEdit;
 class QSpinBox;
 class QListWidget;
+class QComboBox;
 
 namespace MononokeNotify {
   class PrefsDlg : public QDialog {
@@ -59,6 +59,7 @@ namespace MononokeNotify {
     QSpinBox *		sNbrTorrents;
     QSpinBox *		sIconSize;
     QListWidget *	lwTheme;
+    QComboBox *		cbQtStyle;
 
   private slots:
     void		apply(void);

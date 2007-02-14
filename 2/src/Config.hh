@@ -51,6 +51,8 @@ namespace MononokeNotify {
     QString	userName;
     /** @brief The theme's name */
     QString	theme;
+    /** The Qt's style*/
+    QString	qtStyle;
     /** @brief The size of an icon in the menu, torrent item */
     int		iconSize;
     /** @brief The max number of torrents to display */

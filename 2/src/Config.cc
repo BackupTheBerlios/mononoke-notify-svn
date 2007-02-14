@@ -102,6 +102,7 @@ Config::load(void)
 
   userName = elem.firstChildElement("UserName").attribute("val");
   theme = elem.firstChildElement("Theme").attribute("val");
+  qtStyle = elem.firstChildElement("QtStyle").attribute("val");
   iconSize = elem.firstChildElement("IconSize").attribute("val").toInt();
   nbrTorrent = elem.firstChildElement("NbrTorrent").attribute("val").toInt();
   progressDlgClose = elem.firstChildElement("ProgressDlgClose")
@@ -130,10 +131,11 @@ Config::save(void)
   data += "<Config>\n";
   data += "  <UserName val=\"" + userName + "\"/>\n"
     + "  <Theme val=\"" + theme + "\"/>\n"
+    + "  <QtStyle val=\"" + qtStyle + ">"
     + "  <IconSize val=\"" + QString::number(iconSize) + "\"/>\n"
     + "  <NbrTorrent val=\"" + QString::number(nbrTorrent) + "\"/>\n"
     + "  <ProgressDlgClose val=\"" + QString::number(progressDlgClose) + "\"/>\n"
-    + "</Config>\n\n";
+    + "</Config>\n";
 
   file.open(QIODevice::WriteOnly);
   file.write(data.toAscii());
