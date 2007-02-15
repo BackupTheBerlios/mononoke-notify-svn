@@ -101,14 +101,14 @@ Config::load(void)
 
   QDomElement elem = doc.documentElement();
 
-  userName = elem.firstChildElement("UserName").attribute("val");
-  theme = elem.firstChildElement("Theme").attribute("val");
-  qtStyle = elem.firstChildElement("QtStyle").attribute("val");
+  userName = elem.firstChildElement("UserName").attribute("val", "BabaLi");
+  theme = elem.firstChildElement("Theme").attribute("val", "default");
+  qtStyle = elem.firstChildElement("QtStyle").attribute("val", "Plastique");
   QApplication::setStyle(qtStyle);
-  iconSize = elem.firstChildElement("IconSize").attribute("val").toInt();
-  nbrTorrent = elem.firstChildElement("NbrTorrent").attribute("val").toInt();
+  iconSize = elem.firstChildElement("IconSize").attribute("val", "32").toInt();
+  nbrTorrent = elem.firstChildElement("NbrTorrent").attribute("val", "6").toInt();
   progressDlgClose = elem.firstChildElement("ProgressDlgClose")
-    .attribute("val").toInt();
+    .attribute("val", "0").toInt();
 }
 
 /** @brief Loads default values */
