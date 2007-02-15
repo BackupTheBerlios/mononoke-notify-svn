@@ -40,7 +40,7 @@
 
     <Item action="Update">
       <Icon src="refresh.png"/>
-      <Text val="Mettre a jour."/>
+      <Text val="Rafraichir"/>
     </Item>
 
     <Separator/>
