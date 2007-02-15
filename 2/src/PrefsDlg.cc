@@ -159,6 +159,7 @@ PrefsDlg::ok(void)
 {
   apply();
   hide();
+  mn_updater.update();
 }
 
 void

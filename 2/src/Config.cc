@@ -129,9 +129,9 @@ Config::save(void)
 {
   QString filename(QDir::homePath() + "/.config/mononoke-notify-2/config.xml");
   QFile file(filename);
-  QDomDocument doc("Config");
+  QDomDocument doc;
 
-  QDomElement config = doc.createElement("Mononoke Notify 2 : config");
+  QDomElement config = doc.createElement("Config");
   QDomElement element = doc.createElement("UserName");
   element.setAttribute("val", userName);
   config.appendChild(element);
