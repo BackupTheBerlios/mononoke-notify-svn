@@ -196,5 +196,5 @@ PrefsDlg::load(void)
   if (lwTheme->count() > 0)
     lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
 						Qt::MatchExactly)[0], 1);
-  cbQtStyle->setCurrentIndex(cbQtStyle->findText(mn_config.qtStyle) + 1);
+  cbQtStyle->setCurrentIndex(cbQtStyle->findText(mn_config.qtStyle));
 }

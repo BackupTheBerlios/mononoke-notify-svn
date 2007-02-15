@@ -128,19 +128,31 @@ void
 Config::save(void)
 {
   QString filename(QDir::homePath() + "/.config/mononoke-notify-2/config.xml");
-  QString data("");
   QFile file(filename);
+  QDomDocument doc("Config");
 
-  data += "<Config>\n";
-  data += "  <UserName val=\"" + userName + "\"/>\n"
-    + "  <Theme val=\"" + theme + "\"/>\n"
-    + "  <QtStyle val=\"" + qtStyle + ">\n"
-    + "  <IconSize val=\"" + QString::number(iconSize) + "\"/>\n"
-    + "  <NbrTorrent val=\"" + QString::number(nbrTorrent) + "\"/>\n"
-    + "  <ProgressDlgClose val=\"" + QString::number(progressDlgClose) + "\"/>\n"
-    + "</Config>\n";
+  QDomElement config = doc.createElement("Mononoke Notify 2 : config");
+  QDomElement element = doc.createElement("UserName");
+  element.setAttribute("val", userName);
+  config.appendChild(element);
+  element = doc.createElement("Theme");
+  element.setAttribute("val", theme);
+  config.appendChild(element);
+  element = doc.createElement("IconSize");
+  element.setAttribute("val", iconSize);
+  config.appendChild(element);
+  element = doc.createElement("QtStyle");
+  element.setAttribute("val", qtStyle);
+  config.appendChild(element);
+  element = doc.createElement("NbrTorrent");
+  element.setAttribute("val", nbrTorrent);
+  config.appendChild(element);
+  element = doc.createElement("ProgressDlgClose");
+  element.setAttribute("val", progressDlgClose);
+  config.appendChild(element);
+  doc.appendChild(config);
 
   file.open(QIODevice::WriteOnly);
-  file.write(data.toAscii());
+  file.write(doc.toByteArray(2));
   file.close();
 }
