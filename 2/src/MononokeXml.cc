@@ -47,7 +47,7 @@ using namespace MononokeNotify;
 void
 MononokeXml::parse(void)
 {
-  QString		error("");
+  QString	error("");
   QDomDocument	doc("MononokeXml");
   QFile		file(QDir::homePath()
 		     + "/.config/mononoke-notify-2/user_info.xml");

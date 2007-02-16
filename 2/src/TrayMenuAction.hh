@@ -49,7 +49,8 @@ namespace MononokeNotify {
 
   public:
     TrayMenuAction(QDomElement &	elem,
-		   TorrentXml &		t);
+		   TorrentXml &		t,
+		   QWidget *		parent = 0);
 
   protected:
     QWidget*	createWidget(QWidget*	parent);

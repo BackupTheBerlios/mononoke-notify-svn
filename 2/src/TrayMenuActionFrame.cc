@@ -26,8 +26,8 @@
 
 using namespace MononokeNotify;
 
-TrayMenuActionFrame::TrayMenuActionFrame()
-: QFrame()
+TrayMenuActionFrame::TrayMenuActionFrame(QWidget * parent)
+: QFrame(parent)
 {
 }
 

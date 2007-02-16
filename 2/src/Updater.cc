@@ -134,6 +134,12 @@ Updater::tryUpdateMenu(void)
   if (HttpDownloader::count() == 0) {
     mn_progress->canHide();
     // On genere le menu
+    if (mn_menu)
+    {
+      delete (mn_menu);
+    }
+    mn_menu = new TrayMenu();
+    mn_tray_icon.setContextMenu(mn_menu);
     mn_menu->generate();
   }
 }

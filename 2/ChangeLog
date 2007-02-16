@@ -5,3 +5,4 @@ ChangeLog for Mononoke Notify 2
 2007-02-16 Bique Alexandre <bique.alexandre@gmail.com>
 	* Added support for proxies
 	* Changed Update to Refresh everywhere
+	* Worked on memory leak when refreshing (now deleting the menu)

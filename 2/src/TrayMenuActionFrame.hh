@@ -34,13 +34,14 @@
 #ifndef _MNTRAYMENUACTIONFRAME_HH_
 # define _MNTRAYMENUACTIONFRAME_HH_
 
+class QWdiget;
 # include <QFrame>
 
 namespace MononokeNotify {
   class TrayMenuActionFrame : public QFrame {
 
   public:
-    TrayMenuActionFrame();
+    TrayMenuActionFrame(QWidget *	parent = 0);
     void	enterEvent(QEvent*	event);
     void	leaveEvent(QEvent*	event);
 

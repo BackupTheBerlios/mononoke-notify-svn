@@ -183,19 +183,19 @@ QMenu *
 TrayMenu::handleTorrentList(QDomElement		elem,
 			    TorrentList &	tl)
 {
-  QMenu *	menu = new QMenu();
+  QMenu *	menu = new QMenu(this);
   int		i;
 
   for (i = 0; i < tl.count; i++) {
-    menu->addAction(new TrayMenuAction(elem, tl.t[i]));
+    menu->addAction(new TrayMenuAction(elem, tl.t[i], menu));
   }
-  return menu;
+  return (menu);
 }
 
 void
 TrayMenu::mononoke(void)
 {
-  QUrl url("http://mononoke-bt.org");
+  QUrl	url("http://mononoke-bt.org");
 
   QDesktopServices::openUrl(url);
 }
@@ -209,6 +209,6 @@ TrayMenu::update(void)
 void
 TrayMenu::newMessage(void)
 {
-  QUrl url("http://mononoke-bt.org/inbox.php");
+  QUrl	url("http://mononoke-bt.org/inbox.php");
   QDesktopServices::openUrl(url);
 }
