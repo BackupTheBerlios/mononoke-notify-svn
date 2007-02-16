@@ -55,7 +55,7 @@ MononokeXml::parse(void)
   if (!file.open(QIODevice::ReadOnly))
     return;
   if (!doc.setContent(&file, &error)) {
-    qDebug() << "Oups " + error;
+    qDebug() << "Error: " + error;
     file.close();
     return;
   }

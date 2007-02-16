@@ -44,6 +44,7 @@
 #include "ProgressDlg.hh"
 #include "ProgressLabel.hh"
 #include "HttpDownloader.hh"
+#include "PrefsDlg.hh"
 
 using namespace MononokeNotify;
 
@@ -67,12 +68,14 @@ ProgressDlg::ProgressDlg()
 
   cb->setCheckState((Qt::CheckState) mn_config.progressDlgClose);
   QPushButton * bt = new QPushButton("Fermer");
-
+  QPushButton * proxy = new QPushButton("Proxy");
   connect(bt, SIGNAL(clicked()), this, SLOT(hide()));
+  connect(proxy, SIGNAL(clicked()), mn_prefs, SLOT(show()));
   connect(cb, SIGNAL(stateChanged(int)), this, SLOT(checkBoxClicked(int)));
 
   h->addWidget(cb);
   h->addStretch(100);
+  h->addWidget(proxy);
   h->addWidget(bt);
   v->addWidget(title);
   v->addWidget(area);

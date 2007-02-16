@@ -108,12 +108,12 @@ TrayMenu::handleItem(QDomElement & elem)
 
   if (tmp == "Mononoke") {
     connect(action, SIGNAL(triggered()), this, SLOT(mononoke()));
-  } else if (tmp == "Update") {
+  } else if (tmp == "Refresh") {
     connect(action, SIGNAL(triggered()), this, SLOT(update()));
   } else if (tmp == "NewMessage") {
     connect(action, SIGNAL(triggered()), this, SLOT(newMessage()));
   } else if (tmp == "ShowPrefs") {
-    connect(action, SIGNAL(triggered()), this, SLOT(showPrefs()));
+    connect(action, SIGNAL(triggered()), mn_prefs, SLOT(show()));
   } else if (tmp == "Quit") {
     connect(action, SIGNAL(triggered()), qApp, SLOT(quit()));
   }
@@ -190,12 +190,6 @@ TrayMenu::handleTorrentList(QDomElement		elem,
     menu->addAction(new TrayMenuAction(elem, tl.t[i]));
   }
   return menu;
-}
-
-void
-TrayMenu::showPrefs(void)
-{
-  mn_prefs->show();
 }
 
 void

@@ -59,6 +59,13 @@ namespace MononokeNotify {
     int		nbrTorrent;
     /** @brief If we close the progress dialog when finished */
     int		progressDlgClose;
+
+    /* The proxy part */
+    int		proxy;
+    QString	proxyServer;
+    int		proxyPort;
+    QString	proxyUser;
+    QString	proxyPass;
   };
 }
 #endif /* !_MNCONFIG_HH_ */

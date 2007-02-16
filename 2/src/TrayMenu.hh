@@ -60,7 +60,6 @@ namespace MononokeNotify {
 				  TorrentList &	tl);
 
   private slots:
-    void	showPrefs(void);
     void	mononoke(void);
     void	newMessage(void);
     void	update(void);

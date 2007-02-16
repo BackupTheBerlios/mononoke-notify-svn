@@ -37,6 +37,8 @@
 #include <QUrl>
 
 #include "HttpDownloader.hh"
+#include "App.hh"
+#include "Config.hh"
 
 using namespace MononokeNotify;
 
@@ -55,6 +57,9 @@ HttpDownloader::HttpDownloader(QString &	url,
 {
   QUrl host(url);
   http = new QHttp(host.host(), 80, this);
+  if (mn_config.proxy)
+    http->setProxy(mn_config.proxyServer, mn_config.proxyPort,
+		   mn_config.proxyUser, mn_config.proxyPass);
   file = new QFile(filename, this);
   name = QFileInfo(filename).fileName();
 
@@ -76,7 +81,7 @@ HttpDownloader::done(void)
   file->close();
   http_dl_count--;
   finished();
-  delete (this);
+  deleteLater();
 }
 
 /*!

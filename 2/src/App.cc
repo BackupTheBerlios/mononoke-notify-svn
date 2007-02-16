@@ -49,8 +49,8 @@ App::App(int argc, char **argv)
   config.load();
   trayMenu = new TrayMenu();
   trayIcon.setContextMenu(trayMenu);
-  progressDlg = new ProgressDlg();
   prefsDlg = new PrefsDlg();
+  progressDlg = new ProgressDlg();
   updater.update();
 }
 

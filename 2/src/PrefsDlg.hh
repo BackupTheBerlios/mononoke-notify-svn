@@ -39,19 +39,21 @@ class QLineEdit;
 class QSpinBox;
 class QListWidget;
 class QComboBox;
+class QCheckBox;
 
 namespace MononokeNotify {
   class PrefsDlg : public QDialog {
 
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+    public:
     PrefsDlg();
 
   private:
     void		save();
     void		load();
     QWidget *		makeUserWidget(void);
+    QWidget *		makeProxyWidget(void);
     QWidget *		makeThemeWidget(void);
     QWidget *		makeDownloadThemeWidget(void);
     QWidget *		makeAboutWidget(void);
@@ -60,12 +62,17 @@ namespace MononokeNotify {
     QSpinBox *		sIconSize;
     QListWidget *	lwTheme;
     QComboBox *		cbQtStyle;
+    /* Proxy */
+    QCheckBox *		cbProxy;
+    QLineEdit *		leProxyServer;
+    QLineEdit *		leProxyPort;
+    QLineEdit *		leProxyUser;
+    QLineEdit *		leProxyPass;
 
   private slots:
     void		apply(void);
     void		cancel(void);
     void		ok(void);
-
   };
 }
 

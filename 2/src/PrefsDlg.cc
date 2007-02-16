@@ -45,13 +45,12 @@
 #include <QtDebug>
 #include <QComboBox>
 #include <QStyleFactory>
-
+#include <QCheckBox>
 
 #include "App.hh"
 #include "PrefsDlg.hh"
 
 using namespace MononokeNotify;
-
 
 PrefsDlg::PrefsDlg()
   : QDialog()
@@ -61,6 +60,7 @@ PrefsDlg::PrefsDlg()
   QTabWidget *tab = new QTabWidget();
 
   tab->addTab(makeUserWidget(), "Utilisateur");
+  tab->addTab(makeProxyWidget(), "Proxy");
   tab->addTab(makeThemeWidget(), "Themes");
 #if 0
   tab->addTab(makeDownloadThemeWidget(), "Dl des themes");
@@ -125,6 +125,41 @@ PrefsDlg::makeUserWidget(void)
 }
 
 QWidget *
+PrefsDlg::makeProxyWidget(void)
+{
+  QWidget *w = new QWidget();
+  QGridLayout *grid = new QGridLayout();
+
+  cbProxy = new QCheckBox("J'utilise un proxy");
+  grid->addWidget(cbProxy, 0, 0);
+
+  QLabel *label = new QLabel("Serveur :");
+  leProxyServer = new QLineEdit("");
+  grid->addWidget(label, 1, 0);
+  grid->addWidget(leProxyServer, 1, 1);
+
+  label = new QLabel("Port :");
+  leProxyPort = new QLineEdit("");
+  grid->addWidget(label, 2, 0);
+  grid->addWidget(leProxyPort, 2, 1);
+
+  label = new QLabel("Utilisateur :");
+  leProxyUser = new QLineEdit("");
+  grid->addWidget(label, 3, 0);
+  grid->addWidget(leProxyUser, 3, 1);
+
+  label = new QLabel("Pass :");
+  leProxyPass = new QLineEdit("");
+  leProxyPass->setEchoMode(QLineEdit::Password);
+  grid->addWidget(label, 4, 0);
+  grid->addWidget(leProxyPass, 4, 1);
+  grid->setRowStretch(5, 100);
+  w->setLayout(grid);
+
+  return (w);
+}
+
+QWidget *
 PrefsDlg::makeThemeWidget(void)
 {
   lwTheme = new QListWidget();
@@ -137,7 +172,7 @@ PrefsDlg::makeThemeWidget(void)
     if (sl[i] != "." && sl[i] != "..")
       lwTheme->addItem(sl[i]);
 
-  return lwTheme;
+  return (lwTheme);
 }
 
 QWidget *
@@ -145,7 +180,7 @@ PrefsDlg::makeDownloadThemeWidget(void)
 {
   QWidget *w = new QWidget();
 
-  return w;
+  return (w);
 }
 
 QWidget *
@@ -185,6 +220,11 @@ PrefsDlg::save(void)
   if (lwTheme->currentItem())
     mn_config.theme = lwTheme->currentItem()->text();
   mn_config.qtStyle = cbQtStyle->currentText();
+  mn_config.proxy = cbProxy->checkState();
+  mn_config.proxyServer = leProxyServer->text();
+  mn_config.proxyPort = leProxyPort->text().toInt();
+  mn_config.proxyUser = leProxyUser->text();
+  mn_config.proxyPass = leProxyPass->text();
   mn_config.save();
 }
 
@@ -198,4 +238,9 @@ PrefsDlg::load(void)
     lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
 						Qt::MatchExactly)[0], 1);
   cbQtStyle->setCurrentIndex(cbQtStyle->findText(mn_config.qtStyle));
+  cbProxy->setCheckState((Qt::CheckState)mn_config.proxy);
+  leProxyServer->setText(mn_config.proxyServer);
+  leProxyPort->setText(QString::number(mn_config.proxyPort));
+  leProxyUser->setText(mn_config.proxyUser);
+  leProxyPass->setText(mn_config.proxyPass);
 }

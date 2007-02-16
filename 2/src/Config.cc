@@ -109,6 +109,11 @@ Config::load(void)
   nbrTorrent = elem.firstChildElement("NbrTorrent").attribute("val", "6").toInt();
   progressDlgClose = elem.firstChildElement("ProgressDlgClose")
     .attribute("val", "0").toInt();
+  proxy = elem.firstChildElement("Proxy").attribute("state", "2").toInt();
+  proxyServer = elem.firstChildElement("Proxy").attribute("server");
+  proxyPort = elem.firstChildElement("Proxy").attribute("port").toInt();
+  proxyUser = elem.firstChildElement("Proxy").attribute("user");
+  proxyPass = elem.firstChildElement("Proxy").attribute("pass");
 }
 
 /** @brief Loads default values */
@@ -149,6 +154,13 @@ Config::save(void)
   config.appendChild(element);
   element = doc.createElement("ProgressDlgClose");
   element.setAttribute("val", progressDlgClose);
+  config.appendChild(element);
+  element = doc.createElement("Proxy");
+  element.setAttribute("state", proxy);
+  element.setAttribute("server", proxyServer);
+  element.setAttribute("port", proxyPort);
+  element.setAttribute("user", proxyUser);
+  element.setAttribute("pass", proxyPass);
   config.appendChild(element);
   doc.appendChild(config);
 

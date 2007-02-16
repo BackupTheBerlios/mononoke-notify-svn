@@ -38,7 +38,7 @@
       <Text val="]"/>
     </Item>
 
-    <Item action="Update">
+    <Item action="Refresh">
       <Icon src="refresh.png"/>
       <Text val="Rafraichir"/>
     </Item>
