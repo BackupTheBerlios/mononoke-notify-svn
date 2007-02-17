@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DISTFILES="AUTHORS CMakeLists.txt COPYING Doxyfile README"
-DISTFILES="$DISTFILES mononoke-notify-2.pro src themes"
+DISTFILES="$DISTFILES mononoke-notify-2.pro src themes ChangeLog"
 DISTDIR=mononoke-notify-2
 VERSION=`date +%Y%m%d`
 
