@@ -108,7 +108,7 @@ TrayMenu::handleItem(QDomElement & elem)
 
   if (tmp == "Mononoke") {
     connect(action, SIGNAL(triggered()), this, SLOT(mononoke()));
-  } else if (tmp == "Refresh") {
+  } else if (tmp == "Refresh" || tmp == "Update") {
     connect(action, SIGNAL(triggered()), this, SLOT(update()));
   } else if (tmp == "NewMessage") {
     connect(action, SIGNAL(triggered()), this, SLOT(newMessage()));
