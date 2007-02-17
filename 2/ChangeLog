@@ -4,6 +4,7 @@ ChangeLog for Mononoke Notify 2
 2007-02-17 Bique Alexandre <bique.alexandre@gmail.com>
 	* Preferences dialog can set the automatic closing of the download
 	dialog
+	* Disabling proxy's widget when we aren't using the proxy
 
 2007-02-16 Bique Alexandre <bique.alexandre@gmail.com>
 	* Added support for proxies

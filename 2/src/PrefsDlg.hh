@@ -76,6 +76,10 @@ namespace MononokeNotify {
     void		apply(void);
     void		cancel(void);
     void		ok(void);
+    void		setProxyEnabled(int	enable);
+
+  signals:
+    void		proxyEnabled(bool	enable);
   };
 }
 

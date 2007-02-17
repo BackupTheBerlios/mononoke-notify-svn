@@ -92,6 +92,7 @@ PrefsDlg::PrefsDlg()
   load();
 }
 
+
 QWidget *
 PrefsDlg::makeUserWidget(void)
 {
@@ -133,6 +134,9 @@ PrefsDlg::makeUserWidget(void)
   return w;
 }
 
+#define PROXY_ENABLING(Widget)\
+  connect(this, SIGNAL(proxyEnabled(bool)), (Widget), SLOT(setEnabled(bool)))
+
 QWidget *
 PrefsDlg::makeProxyWidget(void)
 {
@@ -140,28 +144,39 @@ PrefsDlg::makeProxyWidget(void)
   QGridLayout *grid = new QGridLayout();
 
   cbProxy = new QCheckBox("J'utilise un proxy");
+  connect(cbProxy, SIGNAL(stateChanged(int)),
+	  this, SLOT(setProxyEnabled(int)));
   grid->addWidget(cbProxy, 0, 0);
 
   QLabel *label = new QLabel("Serveur :");
   leProxyServer = new QLineEdit("");
+  PROXY_ENABLING(label);
+  PROXY_ENABLING(leProxyServer);
   grid->addWidget(label, 1, 0);
   grid->addWidget(leProxyServer, 1, 1);
 
   label = new QLabel("Port :");
   leProxyPort = new QLineEdit("");
+  PROXY_ENABLING(label);
+  PROXY_ENABLING(leProxyPort);
   grid->addWidget(label, 2, 0);
   grid->addWidget(leProxyPort, 2, 1);
 
   label = new QLabel("Utilisateur :");
   leProxyUser = new QLineEdit("");
+  PROXY_ENABLING(label);
+  PROXY_ENABLING(leProxyUser);
   grid->addWidget(label, 3, 0);
   grid->addWidget(leProxyUser, 3, 1);
 
   label = new QLabel("Pass :");
   leProxyPass = new QLineEdit("");
   leProxyPass->setEchoMode(QLineEdit::Password);
+  PROXY_ENABLING(label);
+  PROXY_ENABLING(leProxyPass);
   grid->addWidget(label, 4, 0);
   grid->addWidget(leProxyPass, 4, 1);
+
   grid->setRowStretch(5, 100);
   w->setLayout(grid);
 
@@ -252,6 +267,7 @@ PrefsDlg::load(void)
   cbDlProgress->setCheckState((Qt::CheckState)mn_config.progressDlgClose);
   /* Proxy */
   cbProxy->setCheckState((Qt::CheckState)mn_config.proxy);
+  proxyEnabled(!!mn_config.proxy);
   leProxyServer->setText(mn_config.proxyServer);
   leProxyPort->setText(QString::number(mn_config.proxyPort));
   leProxyUser->setText(mn_config.proxyUser);
@@ -260,4 +276,10 @@ PrefsDlg::load(void)
   if (lwTheme->count() > 0)
     lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
 						Qt::MatchExactly)[0], 1);
+}
+
+void
+PrefsDlg::setProxyEnabled(int	enabled)
+{
+  proxyEnabled(!!enabled);
 }
