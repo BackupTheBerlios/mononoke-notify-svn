@@ -68,4 +68,5 @@ namespace MononokeNotify {
     QString	proxyPass;
   };
 }
+
 #endif /* !_MNCONFIG_HH_ */

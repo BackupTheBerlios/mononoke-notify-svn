@@ -44,9 +44,9 @@ class QCheckBox;
 namespace MononokeNotify {
   class PrefsDlg : public QDialog {
 
-    Q_OBJECT
+  Q_OBJECT
 
-    public:
+  public:
     PrefsDlg();
 
   private:
@@ -57,17 +57,20 @@ namespace MononokeNotify {
     QWidget *		makeThemeWidget(void);
     QWidget *		makeDownloadThemeWidget(void);
     QWidget *		makeAboutWidget(void);
+    /* User */
     QLineEdit *		leUserName;
     QSpinBox *		sNbrTorrents;
     QSpinBox *		sIconSize;
-    QListWidget *	lwTheme;
     QComboBox *		cbQtStyle;
+    QCheckBox *		cbDlProgress;
     /* Proxy */
     QCheckBox *		cbProxy;
     QLineEdit *		leProxyServer;
     QLineEdit *		leProxyPort;
     QLineEdit *		leProxyUser;
     QLineEdit *		leProxyPass;
+    /* Themes */
+    QListWidget *	lwTheme;
 
   private slots:
     void		apply(void);

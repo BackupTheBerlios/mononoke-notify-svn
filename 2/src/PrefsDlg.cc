@@ -102,24 +102,33 @@ PrefsDlg::makeUserWidget(void)
   leUserName = new QLineEdit("");
   grid->addWidget(label, 0, 0);
   grid->addWidget(leUserName, 0, 1);
+
   label = new QLabel("Taille des icones : ");
   sIconSize = new QSpinBox();
   sIconSize->setMaximum(42);
   sIconSize->setMinimum(10);
   grid->addWidget(label, 1, 0);
   grid->addWidget(sIconSize, 1, 1);
+
   label = new QLabel("Torrents a afficher : ");
   sNbrTorrents = new QSpinBox();
   sNbrTorrents->setMaximum(10);
   sNbrTorrents->setMinimum(3);
   grid->addWidget(label, 2, 0);
   grid->addWidget(sNbrTorrents, 2, 1);
+
   label = new QLabel("Style : ");
   cbQtStyle = new QComboBox();
   cbQtStyle->insertItems(0, QStyleFactory::keys());
   grid->addWidget(label, 3, 0);
   grid->addWidget(cbQtStyle, 3, 1);
-  grid->setRowStretch(4, 100);
+
+  label = new QLabel("Fermer automatiquement\n"
+		     "la fenetre de telechargement");
+  cbDlProgress = new QCheckBox();
+  grid->addWidget(label, 4, 0);
+  grid->addWidget(cbDlProgress, 4, 1);
+  grid->setRowStretch(5, 100);
   w->setLayout(grid);
   return w;
 }
@@ -214,33 +223,41 @@ PrefsDlg::cancel(void)
 void
 PrefsDlg::save(void)
 {
+  /* User */
   mn_config.userName = leUserName->text();
   mn_config.iconSize = sIconSize->value();
   mn_config.nbrTorrent = sNbrTorrents->value();
-  if (lwTheme->currentItem())
-    mn_config.theme = lwTheme->currentItem()->text();
   mn_config.qtStyle = cbQtStyle->currentText();
+  mn_config.progressDlgClose = cbDlProgress->checkState();
+  /* Proxy */
   mn_config.proxy = cbProxy->checkState();
   mn_config.proxyServer = leProxyServer->text();
   mn_config.proxyPort = leProxyPort->text().toInt();
   mn_config.proxyUser = leProxyUser->text();
   mn_config.proxyPass = leProxyPass->text();
+  /* Theme */
+  if (lwTheme->currentItem())
+    mn_config.theme = lwTheme->currentItem()->text();
   mn_config.save();
 }
 
 void
 PrefsDlg::load(void)
 {
+  /* User */
   leUserName->setText(mn_config.userName);
   sIconSize->setValue(mn_config.iconSize);
   sNbrTorrents->setValue(mn_config.nbrTorrent);
-  if (lwTheme->count() > 0)
-    lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
-						Qt::MatchExactly)[0], 1);
   cbQtStyle->setCurrentIndex(cbQtStyle->findText(mn_config.qtStyle));
+  cbDlProgress->setCheckState((Qt::CheckState)mn_config.progressDlgClose);
+  /* Proxy */
   cbProxy->setCheckState((Qt::CheckState)mn_config.proxy);
   leProxyServer->setText(mn_config.proxyServer);
   leProxyPort->setText(QString::number(mn_config.proxyPort));
   leProxyUser->setText(mn_config.proxyUser);
   leProxyPass->setText(mn_config.proxyPass);
+  /* Theme */
+  if (lwTheme->count() > 0)
+    lwTheme->setItemSelected(lwTheme->findItems(mn_config.theme,
+						Qt::MatchExactly)[0], 1);
 }
