@@ -27,18 +27,18 @@
 using namespace MononokeNotify;
 
 TrayMenuActionFrame::TrayMenuActionFrame(QWidget * parent)
-: QFrame(parent)
+  : QFrame(parent)
 {
 }
 
 void
-   TrayMenuActionFrame::enterEvent(QEvent * event)
+TrayMenuActionFrame::enterEvent(QEvent * event)
 {
-   setFrameStyle(QFrame::StyledPanel | QFrame::Plain);
+  setFrameStyle(QFrame::StyledPanel | QFrame::Plain);
 }
 
 void
-   TrayMenuActionFrame::leaveEvent(QEvent * event)
+TrayMenuActionFrame::leaveEvent(QEvent * event)
 {
-   setFrameStyle(0);
+  setFrameStyle(0);
 }
