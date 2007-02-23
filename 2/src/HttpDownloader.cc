@@ -42,7 +42,7 @@
 
 using namespace MononokeNotify;
 
-static int	http_dl_count = 0;
+int	HttpDownloader::dl_count = 0;
 
 /*!
 ** @param url the url to the file
@@ -67,7 +67,7 @@ HttpDownloader::HttpDownloader(QString &	url,
   http->get(url, file);
   connect(http, SIGNAL(done(bool)), this, SLOT(done(void)));
 
-  http_dl_count++;
+  dl_count++;
 }
 
 
@@ -79,7 +79,7 @@ void
 HttpDownloader::done(void)
 {
   file->close();
-  http_dl_count--;
+  dl_count--;
   finished();
   deleteLater();
 }
@@ -91,5 +91,5 @@ HttpDownloader::done(void)
 int
 HttpDownloader::count(void)
 {
-  return (http_dl_count);
+  return (dl_count);
 }

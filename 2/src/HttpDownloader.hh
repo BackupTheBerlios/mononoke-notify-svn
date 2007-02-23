@@ -43,9 +43,9 @@ class QFile;
 namespace MononokeNotify {
   class HttpDownloader : public QObject {
 
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+    public:
     HttpDownloader(QString &	url,
 		   QString &	filename,
 		   QObject *	parent = NULL);
@@ -62,7 +62,8 @@ namespace MononokeNotify {
 
   private slots:
     void	done(void);
-
+  private:
+    static int	dl_count;
   };
 }
 #endif
