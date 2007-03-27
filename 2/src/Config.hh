@@ -41,6 +41,8 @@ namespace MononokeNotify {
   class Config : public QObject {
 
   public:
+    Config();
+
     void	init(void);
     void	checkPath(void);
     void	load(void);

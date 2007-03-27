@@ -47,7 +47,7 @@ namespace MononokeNotify {
   public slots:
     void	update(int	current,
 		       int	total);
-
+    void	done();
   };
 }
 

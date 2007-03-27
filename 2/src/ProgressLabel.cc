@@ -25,15 +25,22 @@
 using namespace MononokeNotify;
 
 ProgressLabel::ProgressLabel()
-    :QLabel()
+  :QLabel()
 {
-    setText("0%");
+  setText("0%");
 }
 
 void
 ProgressLabel::update(int current, int total)
 {
-    if (total == 0)
-	setText("100%");
+  if (total <= 0)
+    setText("100%");
+  else
     setText(QString::number((double) (current * 100) / total, 'f', 0) + "%");
+}
+
+void
+ProgressLabel::done()
+{
+  delete this;
 }

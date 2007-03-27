@@ -39,6 +39,13 @@
 
 using namespace MononokeNotify;
 
+Config::Config()
+  : QObject(), userName(), theme(), qtStyle(), iconSize(42),
+    nbrTorrent(6), progressDlgClose(1), proxy(0), proxyServer(),
+    proxyPort(3128), proxyUser(), proxyPass()
+{
+}
+
 /** @brief Initialize configuration */
 void
 Config::init(void)

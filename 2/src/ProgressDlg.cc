@@ -39,6 +39,7 @@
 #include <QScrollArea>
 #include <QProgressBar>
 #include <QHttp>
+#include <QDebug>
 
 #include "App.hh"
 #include "ProgressDlg.hh"
@@ -112,5 +113,13 @@ void
 ProgressDlg::canHide(void)
 {
   if (mn_config.progressDlgClose == 2)
+  {
     hide();
+  }
+  QObject* obj = 0;
+  foreach(obj, grid->children())
+  {
+    delete obj;
+    qDebug() << "prout";
+  }
 }
